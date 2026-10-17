@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f5b">
+<title>QVSE Recovery | Member Portal</title>
+
+<style>
+:root {
+  --green: #087f5b;
+  --dark: #064b39;
+  --light: #e8f7f0;
+  --bg: #f5f8f7;
+  --text: #19352c;
+  --muted: #718078;
+  --border: #e1e9e5;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 15px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.logo {
+  background: var(--green);
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+}
+
+.brand small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.header-actions { display: flex; gap: 10px; }
+
+.btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 17px;
+  font-weight: 700;
+}
+
+.btn-primary { background: var(--green); color: white; }
+.btn-outline { background: white; color: var(--green); border: 1px solid var(--green); }
+
+.hero {
+  background: linear-gradient(120deg, #064b39, #087f5b);
+  color: white;
+  padding: 55px 7%;
+}
+
+.hero-content { max-width: 760px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #b8efda;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 54px);
+  line-height: 1.12;
+  margin: 15px 0;
+}
+
+.hero p {
+  color: #e1f4eb;
+  line-height: 1.8;
+  max-width: 640px;
+}
+
+main {
+  max-width: 1150px;
+  margin: 35px auto;
+  padding: 0 20px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 { margin: 0 0 7px; }
+.muted { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 35px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 23px;
+}
+
+.stat-label { color: var(--muted); font-size: 13px; }
+.stat-value { font-size: 27px; font-weight: 800; margin: 13px 0 8px; }
+.stat-note { font-size: 12px; color: var(--muted); }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.card h3 { margin-top: 0; }
+
+.steps { display: grid; gap: 18px; }
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.step-number {
+  min-width: 35px;
+  height: 35px;
+  background: var(--light);
+  color: var(--green);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+
+.step p { margin: 5px 0; font-size: 14px; line-height: 1.6; }
+
+.notice {
+  background: #fff9e9;
+  border: 1px solid #f0dfae;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.action {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  text-align: left;
+  color: var(--text);
+}
+
+.action strong { display: block; margin-bottom: 7px; }
+.action span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+footer {
+  padding: 28px 20px;
+  margin-top: 50px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: rgba(4, 35, 26, .65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.modal.open { display: flex; }
+
+.modal-content {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin: auto;
+}
+
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  border: 0;
+  background: #f0f4f2;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+form { display: grid; gap: 14px; margin-top: 20px; }
+
+label { font-size: 13px; font-weight: 700; display: block; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 7px;
+  border: 1px solid #d5e0da;
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+}
+
+textarea { min-height: 90px; resize: vertical; }
+
+.form-message { font-size: 13px; line-height: 1.6; }
+
+@media (max-width: 720px) {
+  header { padding: 12px 4%; }
+  .brand { font-size: 15px; }
+  .header-actions .btn { padding: 10px; font-size: 12px; }
+  .hero { padding: 40px 6%; }
+  main { padding: 0 14px; margin-top: 22px; }
+  .stats { grid-template-columns: 1fr; gap: 10px; }
+  .stat-value { font-size: 23px; }
+  .layout { grid-template-columns: 1fr; }
+  .card { padding: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">QR</div>
+    <div>
+      QVSE Recovery
+      <small>Independent Recovery Initiative</small>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <button class="btn btn-outline" onclick="openModal('login')">Log in</button>
+    <button class="btn btn-primary" onclick="openModal('register')">Join portal</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Member recovery portal</div>
+    <h1>Bring your money back to life.</h1>
+    <p>
+      A central place for former members to submit recovery claims,
+      provide supporting records, and follow the progress of their cases.
+    </p>
+    <button class="btn btn-primary" style="background:white;color:#087f5b"
+      onclick="openModal('register')">
+      Start your registration →
+    </button>
+  </div>
+</section>
+
+<main>
+  <section class="section-heading">
+    <div>
+      <h2>Recovery overview</h2>
+      <div class="muted">A transparent process, one claim at a time.</div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="card">
+      <div class="stat-label">Your claim status</div>
+      <div class="stat-value" style="font-size:21px">Not registered</div>
+      <div class="stat-note">Register to submit a claim.</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-label">Your verified payments</div>
+      <div class="stat-value">KSh 0</div>
+      <div class="stat-note">No member payment data loaded.</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-label">Recovery records</div>
+      <div class="stat-value" style="font-size:21px">Not connected</div>
+      <div class="stat-note">Live records appear after backend setup.</div>
+    </div>
+  </section>
+
+  <section class="layout">
+    <div class="card">
+      <h3>How the recovery process works</h3>
+      <p class="muted">Every claim must be reviewed against supporting records.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div>
+            <strong>Create your member account</strong>
+            <p>Register with your correct contact information.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>
+            <strong>Submit your recovery claim</strong>
+            <p>Provide the amount claimed, transaction references, and supporting evidence.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>
+            <strong>Wait for verification</strong>
+            <p>The recovery team reviews your documents and updates your claim status.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div>
+            <strong>Check verified payment records</strong>
+            <p>Payments are recorded only after confirmation against actual transaction evidence.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Important:</strong> Submitting a claim does not guarantee recovery
+        or a payment date. Never pay an unverified release fee to receive a refund.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Member services</h3>
+      <p class="muted">Register or sign in to continue.</p>
+
+      <div class="actions">
+        <button class="action" onclick="openModal('register')">
+          <strong>Register</strong>
+          <span>Create your member account.</span>
+        </button>
+
+        <button class="action" onclick="openModal('login')">
+          <strong>Sign in</strong>
+          <span>Access your account.</span>
+        </button>
+
+        <button class="action" onclick="openModal('claim')">
+          <strong>Recovery claim</strong>
+          <span>Prepare your claim details.</span>
+        </button>
+
+        <button class="action" onclick="showInfo()">
+          <strong>Help & support</strong>
+          <span>Learn what to prepare.</span>
+        </button>
+      </div>
+
+      <p class="muted" style="margin-top:20px">
+        Independent initiative. Confirm the identity and authority of the
+        recovery team before sharing sensitive documents.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>QVSE Recovery — Independent Recovery Initiative</strong><br>
+  This portal does not guarantee refunds. Claims and payment information must
+  be independently verified.<br>
+  © <span id="year"></span> QVSE Recovery
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"
+  aria-labelledby="modalTitle" onclick="backdropClose(event)">
+  <div class="modal-content">
+    <div class="modal-top">
+      <h2 id="modalTitle">Member portal</h2>
+      <button class="close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <p class="muted" id="modalDescription"></p>
+    <form id="portalForm" onsubmit="handleForm(event)">
+      <div id="formFields"></div>
+      <button class="btn btn-primary" type="submit" id="submitButton">Continue</button>
+      <div id="formMessage" class="form-message" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+let currentMode = "";
+
+function openModal(mode) {
+  currentMode = mode;
+  const modal = document.getElementById("modal");
+  const title = document.getElementById("modalTitle");
+  const description = document.getElementById("modalDescription");
+  const fields = document.getElementById("formFields");
+  const submit = document.getElementById("submitButton");
+  const message = document.getElementById("formMessage");
+
+  message.textContent = "";
+  fields.innerHTML = "";
+
+  const definitions = {
+    register: {
+      title: "Create a member account",
+      description: "Frontend setup only. Secure account creation requires the backend.",
+      button: "Prepare registration",
+      fields: `
+        <label>Full name<input name="name" autocomplete="name" required maxlength="100"></label>
+        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+        <label>Phone number<input name="phone" type="tel" autocomplete="tel" required placeholder="e.g. 07XXXXXXXX"></label>
+        <label>Create password<input name="password" type="password" autocomplete="new-password" required minlength="12"></label>
+      `
+    },
+    login: {
+      title: "Member sign in",
+      description: "Login will be connected to the secure backend in the next stage.",
+      button: "Prepare sign in",
+      fields: `
+        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+      `
+    },
+    claim: {
+      title: "Recovery claim",
+      description: "Prepare your claim information. Do not enter real financial or identity data until secure submission is connected.",
+      button: "Check claim form",
+      fields: `
+        <label>Member reference<input name="reference" required maxlength="100"></label>
+        <label>Amount claimed (KSh)<input name="amount" type="number" min="1" step="0.01" required></label>
+        <label>Transaction reference<input name="transaction" maxlength="100" required></label>
+        <label>Claim details<textarea name="details" maxlength="2000" required></textarea></label>
+      `
+    }
+  };
+
+  const item = definitions[mode];
+  title.textContent = item.title;
+  description.textContent = item.description;
+  fields.innerHTML = item.fields;
+  submit.textContent = item.button;
+  modal.classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("open");
+}
+
+function backdropClose(event) {
+  if (event.target.id === "modal") closeModal();
+}
+
+function handleForm(event) {
+  event.preventDefault();
+  const message = document.getElementById("formMessage");
+
+  message.textContent =
+    "The form layout is ready, but this website is not connected to a backend yet. Nothing has been registered, logged in, or submitted. We will connect the secure API and database next.";
+  message.style.color = "#8a5200";
+}
+
+function showInfo() {
+  alert("Prepare your member reference and genuine transaction records. Secure support contacts will be added after the recovery team confirms its official contact details.");
+}
+</script>
+
+</body>
+</html>
