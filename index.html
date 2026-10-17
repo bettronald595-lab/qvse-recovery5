@@ -1,3 +1,6 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +18,15 @@
   --border:#e1e9e5;
   --white:#fff;
 }
-* { box-sizing:border-box; }
+* {box-sizing:border-box}
 body {
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
-button,input,select,textarea { font:inherit; }
-button { cursor:pointer; }
+button,input {font:inherit}
+button {cursor:pointer}
 header {
   background:white;
   border-bottom:1px solid var(--border);
@@ -31,126 +34,71 @@ header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:15px;
+  gap:12px;
+  flex-wrap:wrap;
 }
-.brand { display:flex;align-items:center;gap:10px;font-size:19px;font-weight:800; }
+.brand {display:flex;align-items:center;gap:10px;font-weight:800}
 .logo {
-  background:var(--green);color:white;width:42px;height:42px;
-  border-radius:12px;display:grid;place-items:center;font-size:17px;
+  background:var(--blue);color:white;
+  width:42px;height:42px;border-radius:12px;
+  display:grid;place-items:center;
 }
-.brand small { display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:4px; }
-.header-actions { display:flex;gap:10px;flex-wrap:wrap; }
+.brand small {display:block;color:var(--muted);font-weight:400;margin-top:4px}
+.header-actions {display:flex;gap:8px;flex-wrap:wrap}
 .btn {
-  border:0;border-radius:8px;padding:12px 17px;font-weight:700;
+  border:0;border-radius:8px;padding:12px 16px;
+  font-weight:700;
 }
-.btn-primary { background:var(--green);color:white; }
-.btn-outline { background:white;color:var(--green);border:1px solid var(--green); }
-.btn:focus-visible,button:focus-visible { outline:3px solid #8bd5b8;outline-offset:3px; }
+.primary {background:var(--green);color:white}
+.outline {background:white;color:var(--green);border:1px solid var(--green)}
 .hero {
-  background:linear-gradient(120deg,#064b39,#087f5b);
-  color:white;padding:55px 7%;
+  background:linear-gradient(120deg,var(--dark),var(--green));
+  color:white;padding:45px 7%;
 }
-.hero-content { max-width:760px; }
-.eyebrow {
-  text-transform:uppercase;font-size:12px;letter-spacing:2px;
-  color:#b8efda;font-weight:700;
+.hero h1 {font-size:clamp(30px,5vw,48px);margin:12px 0}
+.hero p {line-height:1.8;max-width:650px;color:#e1f4eb}
+.eyebrow {font-size:12px;letter-spacing:2px;color:#b8efda}
+main {max-width:1100px;margin:30px auto;padding:0 18px}
+.page {display:none}
+.page.active {display:block}
+.card {
+  background:white;border:1px solid var(--border);
+  border-radius:14px;padding:23px;margin-bottom:18px;
 }
-.hero h1 { font-size:clamp(32px,5vw,54px);line-height:1.12;margin:15px 0; }
-.hero p { color:#e1f4eb;line-height:1.8;max-width:640px; }
-main { max-width:1150px;margin:35px auto;padding:0 20px; }
-.section-heading {
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:12px;margin-bottom:20px;
+.card h2,.card h3 {margin-top:0}
+.muted {color:var(--muted);font-size:14px;line-height:1.7}
+.grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.value {font-size:25px;font-weight:800;margin:12px 0}
+form {display:grid;gap:14px;margin-top:20px}
+label {font-size:13px;font-weight:700;display:block}
+input {
+  width:100%;padding:12px;margin-top:7px;
+  border:1px solid #d5e0da;border-radius:8px;
 }
-.section-heading h2 { margin:0 0 7px; }
-.muted { color:var(--muted);font-size:14px;line-height:1.6; }
-.stats {
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;margin-bottom:35px;
-}
-.card { background:white;border:1px solid var(--border);border-radius:14px;padding:23px; }
-.stat-label { color:var(--muted);font-size:13px; }
-.stat-value { font-size:27px;font-weight:800;margin:13px 0 8px; }
-.stat-note { font-size:12px;color:var(--muted); }
-.layout {
-  display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start;
-}
-.card h3 { margin-top:0; }
-.steps { display:grid;gap:18px; }
-.step { display:flex;align-items:flex-start;gap:12px; }
-.step-number {
-  min-width:35px;height:35px;background:var(--light);color:var(--green);
-  border-radius:10px;display:grid;place-items:center;font-weight:800;
-}
-.step p { margin:5px 0;font-size:14px;line-height:1.6; }
-.notice {
-  background:#fff9e9;border:1px solid #f0dfae;padding:15px;
-  border-radius:10px;font-size:13px;line-height:1.7;margin-top:20px;
-}
-.actions {
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;margin-top:16px;
-}
-.action {
-  padding:16px;border:1px solid var(--border);border-radius:10px;
-  background:white;text-align:left;color:var(--text);
-}
-.action strong { display:block;margin-bottom:7px; }
-.action span { color:var(--muted);font-size:12px;line-height:1.5; }
-.pay-card {
-  margin-top:22px;border:1px solid #b8dfce;
-  background:#f0fbf5;border-radius:14px;padding:22px;
-}
-.pay-card h3 { margin-top:0; }
-.pay-amount { font-size:30px;font-weight:800;color:var(--green);margin:10px 0; }
+.message {font-size:13px;line-height:1.7;margin-top:12px}
+.price {font-size:34px;color:var(--green);font-weight:800;margin:14px 0}
 .pay-id {
-  background:white;border:1px dashed #9bcbb5;border-radius:8px;
-  padding:13px;display:flex;align-items:center;justify-content:space-between;
-  gap:10px;overflow-wrap:anywhere;
+  border:1px dashed #9bcbb5;background:#f0fbf5;
+  border-radius:8px;padding:14px;overflow-wrap:anywhere;
 }
-.pay-id strong { font-size:18px; }
-.small-btn {
-  padding:9px 12px;border:1px solid var(--green);border-radius:7px;
-  color:var(--green);background:white;font-weight:700;flex-shrink:0;
+.pay-id strong {font-size:20px}
+.notice {
+  background:#fff9e9;border:1px solid #f0dfae;
+  padding:14px;border-radius:9px;font-size:13px;line-height:1.7;
+  margin:16px 0;
 }
+.actions {display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
 footer {
-  padding:28px 20px;margin-top:50px;text-align:center;
-  border-top:1px solid var(--border);color:var(--muted);
-  font-size:12px;line-height:1.8;
+  padding:25px 15px;text-align:center;
+  border-top:1px solid var(--border);
+  color:var(--muted);font-size:12px;line-height:1.8;
 }
-.modal {
-  position:fixed;inset:0;z-index:10;background:rgba(4,35,26,.65);
-  display:none;align-items:center;justify-content:center;padding:18px;overflow-y:auto;
-}
-.modal.open { display:flex; }
-.modal-content {
-  width:100%;max-width:470px;background:white;border-radius:16px;
-  padding:25px;margin:auto;max-height:92vh;overflow-y:auto;
-}
-.modal-top { display:flex;justify-content:space-between;align-items:center;gap:12px; }
-.modal-top h2 { font-size:22px; }
-.close { border:0;background:#f0f4f2;border-radius:8px;padding:8px 12px; }
-form { display:grid;gap:14px;margin-top:20px; }
-label { font-size:13px;font-weight:700;display:block; }
-input,select,textarea {
-  width:100%;padding:12px;margin-top:7px;border:1px solid #d5e0da;
-  border-radius:8px;background:white;color:var(--text);
-}
-textarea { min-height:90px;resize:vertical; }
-.form-message { font-size:13px;line-height:1.6; }
-.payment-steps { padding-left:22px;line-height:1.8;font-size:14px; }
-.payment-steps li { margin-bottom:8px; }
-@media(max-width:720px) {
-  header { padding:12px 4%; }
-  .brand { font-size:15px; }
-  .header-actions .btn { padding:10px;font-size:12px; }
-  .hero { padding:40px 6%; }
-  main { padding:0 14px;margin-top:22px; }
-  .stats { grid-template-columns:1fr;gap:10px; }
-  .stat-value { font-size:23px; }
-  .layout { grid-template-columns:1fr; }
-  .card { padding:18px; }
-  .actions { grid-template-columns:1fr 1fr; }
+@media(max-width:700px) {
+  header {padding:12px 4%}
+  .grid {grid-template-columns:1fr}
+  main {padding:0 12px}
+  .card {padding:17px}
+  .hero {padding:35px 6%}
 }
 </style>
 </head>
@@ -159,294 +107,534 @@ textarea { min-height:90px;resize:vertical; }
 <header>
   <div class="brand">
     <div class="logo">QR</div>
-    <div>
-      QVSE Recovery Hub
-      <small>Independent Recovery Initiative</small>
-    </div>
-  </div>
+    <div>QVSE RECOVERY HUB
+         <small>Recovery funds. </small>
+       </div>
+     </div>
+
   <div class="header-actions">
-    <button class="btn btn-outline" onclick="openModal('login')">Log in</button>
-    <button class="btn btn-primary" onclick="openModal('register')">Join portal</button>
+    <button class="btn outline" onclick="showPage('login')">Log in</button>
+    <button class="btn primary" onclick="showPage('register')">Join portal</button>
+    <button class="btn outline" id="logoutButton"
+      style="display:none" onclick="logout()">Log out</button>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <div class="eyebrow">Member recovery portal</div>
-    <h1>Bring your money back to life.</h1>
-    <p>
-      A central place for former members to prepare recovery claims,
-      provide supporting records, and follow the progress of their cases.
-    </p>
-    <button class="btn btn-primary" style="background:white;color:#087f5b"
-      onclick="openModal('register')">Start your registration →</button>
-    <button class="btn btn-primary" style="margin:10px 0 0 5px"
-      onclick="openPayment()">Pay to Access Your Dashboard</button>
-  </div>
+  <div class="eyebrow">MEMBER RECOVERY PORTAL</div>
+  <h1>GET YOUR FUNDS BACK WITH QVSE OFFICIAL PORTAL.</h1>
+  <p>
+    Register to prepare your recovery claim and follow its progress.
+    Claims and payments must be verified against genuine records.
+  </p>
+  <button class="btn primary" style="background:white;color:#087f5b"
+    onclick="showPage('register')">Register now →</button>
 </section>
 
 <main>
-  <section class="section-heading">
-    <div>
-      <h2>Recovery overview</h2>
-      <div class="muted">A transparent process, one claim at a time.</div>
-    </div>
-  </section>
 
-  <section class="stats">
+  <!-- HOME -->
+  <section class="page active" id="home">
     <div class="card">
-      <div class="stat-label">Your claim status</div>
-      <div class="stat-value" style="font-size:21px">Not registered</div>
-      <div class="stat-note">Register to prepare a claim.</div>
-    </div>
-    <div class="card">
-      <div class="stat-label">Your verified payments</div>
-      <div class="stat-value">KSh 0</div>
-      <div class="stat-note">VERIFICATION WILL BE LOADED AFTER CLAIM.</div>
-    </div>
-    <div class="card">
-      <div class="stat-label">Recovery records</div>
-      <div class="stat-value" style="font-size:21px"> connected</div>
-      <div class="stat-note">Live records available.</div>
-    </div>
-  </section>
-
-  <section class="layout">
-    <div class="card">
-      <h3>How the recovery process works</h3>
-      <p class="muted">Every claim must be reviewed against supporting records.</p>
-      <div class="steps">
-        <div class="step"><div class="step-number">1</div><div>
-          <strong>Create your account</strong><p>Register with correct contact information.</p>
-        </div></div>
-        <div class="step"><div class="step-number">2</div><div>
-          <strong>Prepare your recovery claim</strong><p>Provide the amount claimed, transaction references, and supporting evidence.</p>
-        </div></div>
-        <div class="step"><div class="step-number">3</div><div>
-          <strong>Wait for verification</strong><p>The recovery team reviews documents and updates your claim status.</p>
-        </div></div>
-        <div class="step"><div class="step-number">4</div><div>
-          <strong>Check verified payment records</strong><p>Payments are recorded only after confirmation against actual transaction evidence.</p>
-        </div></div>
-      </div>
-      <div class="notice">
-        <strong>Payment safety:</strong>Only proceed if the recipient and terms are correct and you agree to them..
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Member services</h3>
-      <p class="muted">Register or sign in to continue.</p>
+      <h2>Welcome to the member portal</h2>
+      <p class="muted">
+        Create an account or sign in to continue. Dashboard access is
+        subject to the published fee terms and genuine payment verification.
+      </p>
       <div class="actions">
-        <button class="action" onclick="openModal('register')">
-          <strong>Register</strong><span>Create your member account.</span>
+        <button class="btn primary" onclick="showPage('register')">
+          Create account
         </button>
-        <button class="action" onclick="openModal('login')">
-          <strong>Sign in</strong><span>Access your account.</span>
-        </button>
-        <button class="action" onclick="openModal('claim')">
-          <strong>Recovery claim</strong><span>Prepare your claim details.</span>
-        </button>
-        <button class="action" onclick="showInfo()">
-          <strong>Help &amp; support</strong><span>Learn what to prepare.</span>
+        <button class="btn outline" onclick="showPage('login')">
+          Member login
         </button>
       </div>
+    </div>
 
-      <div class="pay-card">
-        <h3>Dashboard access payment</h3>
-        <div class="muted">Review the fee and recipient details before paying.</div>
-        <div class="pay-amount">$10 USD</div>
-        <p><strong>Payment method:</strong> Binance Pay</p>
-        <p><strong>Recipient name:</strong> QVSE Recovery Hub</p>
-        <div class="pay-id">
-          <div><div class="muted">Binance Pay ID</div><strong id="binanceId">12345</strong></div>
-          <button class="small-btn" type="button" onclick="copyPayId()">Copy ID</button>
-        </div>
-        <button class="btn btn-primary" style="width:100%;margin-top:15px"
-          onclick="openPayment()">View payment procedure</button>
-        <p class="muted" style="margin-bottom:0">
-          Verify the recipient in Binance before sending any payment.
-        </p>
+    <div class="grid">
+      <div class="card">
+        <div class="muted">Account registration</div>
+        <div class="value">Step 1</div>
+        <p class="muted">Create your member account.</p>
+      </div>
+      <div class="card">
+        <div class="muted">Dashboard access</div>
+        <div class="value">$10 USD</div>
+        <p class="muted">Review the fee and terms before paying.</p>
+      </div>
+      <div class="card">
+        <div class="muted">Claim verification</div>
+        <div class="value">Review</div>
+        <p class="muted">Recovery is claimed after system verification.</p>
       </div>
     </div>
   </section>
+
+  <!-- REGISTRATION -->
+  <section class="page" id="register">
+    <div class="card">
+      <h2>Create your member account</h2>
+      <p class="muted">
+        This prototype saves accounts in this browser only.
+        It is not suitable for real members or sensitive information.
+      </p>
+
+      <form id="registerForm">
+        <label>Full name
+          <input name="name" autocomplete="name"
+            maxlength="100" required>
+        </label>
+        <label>Email address
+          <input name="email" type="email"
+            autocomplete="email" maxlength="254" required>
+        </label>
+        <label>Phone number
+          <input name="phone" type="tel" autocomplete="tel"
+            placeholder="e.g. 07XXXXXXXX" maxlength="20" required>
+        </label>
+        <label>Create password
+          <input name="password" type="password"
+            autocomplete="new-password" minlength="12" required>
+        </label>
+        <label>Confirm password
+          <input name="confirmPassword" type="password"
+            autocomplete="new-password" minlength="12" required>
+        </label>
+        <button class="btn primary" type="submit">Create account</button>
+        <div class="message" id="registerMessage" aria-live="polite"></div>
+      </form>
+
+      <p class="muted">Already registered?
+        <a href="#" onclick="showPage('login');return false">Log in</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- LOGIN -->
+  <section class="page" id="login">
+    <div class="card">
+      <h2>Member sign in</h2>
+      <p class="muted">Enter the details used during registration.</p>
+
+      <form id="loginForm">
+        <label>Email address
+          <input name="email" type="email"
+            autocomplete="email" required>
+        </label>
+        <label>Password
+          <input name="password" type="password"
+            autocomplete="current-password" required>
+        </label>
+        <button class="btn primary" type="submit">Log in and continue</button>
+        <div class="message" id="loginMessage" aria-live="polite"></div>
+      </form>
+
+      <p class="muted">No account?
+        <a href="#" onclick="showPage('register');return false">Register here</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- PAYMENT PAGE -->
+  <section class="page" id="payment">
+    <div class="card">
+      <h2>Dashboard access payment</h2>
+      <p id="memberGreeting" class="muted"></p>
+
+      <div class="price">$10 USD</div>
+      <p><strong>Payment method:</strong> Binance Pay</p>
+      <p><strong>Intended recipient:</strong> QVSE Recovery Hub</p>
+
+      <div class="pay-id">
+        <div class="muted">Binance Pay ID — sample, not verified</div>
+        <strong id="binanceId">12345</strong>
+        <div class="actions">
+          <button class="btn outline" type="button" onclick="copyPayId()">
+            Copy ID
+          </button>
+        </div>
+      </div>
+
+      <div class="notice">
+        Before paying, independently confirm the recipient's identity,
+        the access fee, refund terms and the service.
+        The fee will be refunded when the claim is varified.
+        Must use binance to be verified this may take fee hours. Do not send money to an unverified recipient unless QVSE RECOVERY Hub.
+      </div>
+
+      <h3>Payment instructions</h3>
+      <ol class="muted">
+        <li>Open Binance and select Binance Pay.</li>
+        <li>Enter the recipient's verified Pay ID.</li>
+        <li>Confirm the recipient name shown in Binance.</li>
+        <li>Check the amount and any applicable fees.</li>
+        <li>Proceed only if you agree to the terms and trust the recipient.</li>
+      </ol>
+
+      <div class="notice">
+        <strong>Payment status:</strong>
+        <span id="paymentStatus">Not verified</span>
+        <br>
+        Paying $10 automatically activate your dashboard.
+        The site must verify payment first to access the dashboard and have a claim checked.
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" onclick="requestVerification()">
+          I have paid — request verification
+        </button>
+        <button class="btn outline" onclick="logout()">Log out</button>
+      </div>
+
+      <div class="message" id="paymentMessage" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="page" id="dashboard">
+    <div class="card">
+      <h2>Member dashboard</h2>
+      <p id="dashboardGreeting" class="muted"></p>
+      <div class="notice">
+        <strong>Claim status:</strong> Pending genuine claim verification.
+        <br>Signing in  does not establish that a
+        recovery claim is valid or that funds are available.
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="muted">Claim status</div>
+        <div class="value">Pending</div>
+      </div>
+      <div class="card">
+        <div class="muted">Verified payments</div>
+        <div class="value">KSh 0</div>
+        <p class="muted">No payment records connected.</p>
+      </div>
+      <div class="card">
+        <div class="muted">Recovery records</div>
+        <div class="value">Pending</div>
+        <p class="muted">A verified backend is required.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Next steps</h3>
+      <p class="muted">
+        Keep relevant transaction references and supporting documents.
+        A secure claim-submission and verification service must be connected
+        before documents or live recovery records can be managed here.
+      </p>
+      <button class="btn outline" onclick="logout()">Log out</button>
+    </div>
+  </section>
+
 </main>
 
+
+<!-- QVSE CUSTOMER SUPPORT FAQ -->
+<section id="support" style="padding:30px 20px;background:#f4f7f6;">
+  <div style="max-width:700px;margin:auto;">
+    <h2 style="text-align:center;color:#087f5b;">Customer Support</h2>
+    <p style="text-align:center;">Find answers to common questions.</p>
+
+    <details style="background:white;padding:15px;margin:10px 0;border-radius:8px;">
+      <summary><strong>How do I create an account?</strong></summary>
+      <p>Click Register, enter your details, and follow the instructions to create your account.</p>
+    </details>
+
+    <details style="background:white;padding:15px;margin:10px 0;border-radius:8px;">
+      <summary><strong>What should I do if I cannot log in?</strong></summary>
+      <p>Check that your email and password are correct. If the problem continues, contact the website administrator.</p>
+    </details>
+
+    <details style="background:white;padding:15px;margin:10px 0;border-radius:8px;">
+      <summary><strong>How do I check my recovery claim?</strong></summary>
+      <p>Log in to your account and check the claim status if this feature is available. A claim is not confirmed until it has been reviewed.</p>
+    </details>
+
+    <details style="background:white;padding:15px;margin:10px 0;border-radius:8px;">
+      <summary><strong>How long does recovery take?</strong></summary>
+      <p>Processing time depends on whether funds are available and the claim has been verified. A payment date cannot be guaranteed.</p>
+    </details>
+
+    <details style="background:white;padding:15px;margin:10px 0;border-radius:8px;">
+      <summary><strong>Do I have to pay a fee?</strong></summary>
+      <p> According to recovery you have to pay $10 and request for a claim Check the official fee information before paying this has been clearly explained.</p>
+    </details>
+
+    <details style="background:white;padding:15px;margin:10px 0;border-radius:8px;">
+      <summary><strong>How can I get more help?</strong></summary>
+      <p>Contact the website administrator using the genuine contact details published on this website.</p>
+    </details>
+  </div>
+</section>
+
+
 <footer>
-  <strong>QVSE Recovery Hub — Independent Recovery Initiative</strong><br>
-  Claim and payment details must be verified against genuine records.<br>
-  This portal is not evidence of official QVSE affiliation.<br>
-  © <span id="year"></span> QVSE Recovery Hub
+  <strong>QVSE Recovery Hub — The QVSE Recovery Initiative</strong><br>
+  This portal do establishes official QVSE affiliation or regulatory
+  approval. Claim status and payments require genuine verification and it may take a few minutes, wrong information can parmanently suspend the account.<br>
+  © <span id="year"></span> QVSE Recovery Hub.
+  REQULATED BY CMA,BSR AND BINANCE PAY.
 </footer>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true"
-  aria-labelledby="modalTitle" onclick="backdropClose(event)">
-  <div class="modal-content">
-    <div class="modal-top">
-      <h2 id="modalTitle">Member portal</h2>
-      <button class="close" onclick="closeModal()" aria-label="Close">✕</button>
-    </div>
-    <p class="muted" id="modalDescription"></p>
-    <form id="portalForm" onsubmit="handleForm(event)">
-      <div id="formFields"></div>
-      <button class="btn btn-primary" type="submit" id="submitButton">Continue</button>
-      <div id="formMessage" class="form-message" aria-live="polite"></div>
-    </form>
-  </div>
-</div>
-
-<div class="modal" id="paymentModal" role="dialog" aria-modal="true"
-  aria-labelledby="paymentTitle" onclick="paymentBackdropClose(event)">
-  <div class="modal-content">
-    <div class="modal-top">
-      <h2 id="paymentTitle">Dashboard access payment</h2>
-      <button class="close" onclick="closePayment()" aria-label="Close">✕</button>
-    </div>
-    <p class="muted">Please review the amount and verify the recipient in Binance before confirming any transfer.</p>
-    <div class="pay-card">
-      <div class="muted">Access fee</div>
-      <div class="pay-amount">$10 USD</div>
-      <p><strong>Recipient:</strong> QVSE Recovery Hub</p>
-      <p><strong>Binance Pay ID:</strong> <span id="modalPayId">12345</span></p>
-      <button class="btn btn-outline" type="button" onclick="copyPayId()">Copy Binance Pay ID</button>
-    </div>
-    <ol class="payment-steps">
-      <li>Open the Binance app and select Binance Pay.</li>
-      <li>Binance user,Enter Pay ID <strong>12345</strong>.</li>
-      <li>Check that Binance displays the correct recipient name before proceeding.</li>
-      <li>Check the amount and any applicable fees in Binance.</li>
-      <li>Only proceed if the recipient and terms are correct and you agree to them.</li>
-    </ol>
-    <p class="notice">
-      This website has been verified by CMA,BINANCE PAY AND BSR.
-    </p>
-    <button class="btn btn-outline" style="width:100%;margin-top:12px"
-      onclick="closePayment()">Close</button>
-    <div id="copyMessage" class="form-message" aria-live="polite"></div>
-  </div>
-</div>
-
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+const STORAGE_KEY = "qvse_recovery_prototype_accounts";
+const SESSION_KEY = "qvse_recovery_prototype_session";
 
-let currentMode = "";
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-function openModal(mode) {
-  currentMode = mode;
-  const modal = document.getElementById("modal");
-  const title = document.getElementById("modalTitle");
-  const description = document.getElementById("modalDescription");
-  const fields = document.getElementById("formFields");
-  const submit = document.getElementById("submitButton");
-  const message = document.getElementById("formMessage");
-
-  message.textContent = "";
-  fields.innerHTML = "";
-
-  const definitions = {
-    register: {
-      title: "Create a member account",
-      description: "Registration is a frontend form and is  saved to a server backened.",
-      button: "Prepare registration",
-      fields: `
-        <label>Full name<input name="name" autocomplete="name" required maxlength="100"></label>
-        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
-        <label>Phone number<input name="phone" type="tel" autocomplete="tel" required placeholder="e.g. 07XXXXXXXX"></label>
-        <label>Create password<input name="password" type="password" autocomplete="new-password" required minlength="12"></label>
-      `
-    },
-    login: {
-      title: "Member sign in",
-      description: "Login available after payment.",
-      button: "Check sign-in form",
-      fields: `
-        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
-        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
-      `
-    },
-    claim: {
-      title: "Recovery claim",
-      description: "Prepare your claim information. This form does not submit data to a server yet.",
-      button: "Prepare claim",
-      fields: `
-        <label>Member reference<input name="reference" required maxlength="100"></label>
-        <label>Amount claimed (KSh)<input name="amount" type="number" min="1" step="0.01" required></label>
-        <label>Transaction reference<input name="transaction" maxlength="100" required></label>
-        <label>Claim details<textarea name="details" maxlength="2000" required></textarea></label>
-      `
-    }
-  };
-
-  const item = definitions[mode];
-  title.textContent = item.title;
-  description.textContent = item.description;
-  fields.innerHTML = item.fields;
-  submit.textContent = item.button;
-  modal.classList.add("open");
-}
-
-function closeModal() {
-  document.getElementById("modal").classList.remove("open");
-}
-
-function backdropClose(event) {
-  if (event.target.id === "modal") closeModal();
-}
-
-function handleForm(event) {
-  event.preventDefault();
-  const message = document.getElementById("formMessage");
-  message.style.color = "#8a5200";
-
-  if (currentMode === "register") {
-    message.textContent =
-      "The form is valid, . Backend save registration secured.";
-  } else if (currentMode === "login") {
-    message.textContent =
-      "Sign-in is  connected.information details saved pay to access the dashboard.";
-  } else {
-    message.textContent =
-      "Your claim details are submitted or saved..";
+function getAccounts() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  } catch {
+    return {};
   }
 }
 
-function openPayment() {
-  document.getElementById("copyMessage").textContent = "";
-  document.getElementById("paymentModal").classList.add("open");
+function saveAccounts(accounts) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts));
 }
 
-function closePayment() {
-  document.getElementById("paymentModal").classList.remove("open");
+function currentUser() {
+  const email = sessionStorage.getItem(SESSION_KEY);
+  if (!email) return null;
+  return getAccounts()[email] || null;
 }
 
-function paymentBackdropClose(event) {
-  if (event.target.id === "paymentModal") closePayment();
+function showPage(page) {
+  document.querySelectorAll(".page").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  const target = document.getElementById(page);
+  if (!target) return;
+
+  target.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  updateHeader();
+}
+
+function updateHeader() {
+  const user = currentUser();
+  document.getElementById("logoutButton").style.display =
+    user ? "inline-block" : "none";
+}
+
+async function hashPassword(password, salt) {
+  if (!window.crypto || !crypto.subtle) {
+    throw new Error("Secure password hashing is unavailable. Use HTTPS.");
+  }
+
+  const data = new TextEncoder().encode(salt + password);
+  const hash = await crypto.subtle.digest("SHA-256", data);
+
+  return Array.from(new Uint8Array(hash))
+    .map(byte => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function randomSalt() {
+  const bytes = crypto.getRandomValues(new Uint8Array(16));
+  return Array.from(bytes)
+    .map(byte => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+document.getElementById("registerForm").addEventListener(
+  "submit", async function(event) {
+    event.preventDefault();
+
+    const form = new FormData(event.target);
+    const name = String(form.get("name")).trim();
+    const email = String(form.get("email")).trim().toLowerCase();
+    const phone = String(form.get("phone")).trim();
+    const password = String(form.get("password"));
+    const confirmPassword = String(form.get("confirmPassword"));
+    const message = document.getElementById("registerMessage");
+
+    message.style.color = "#a13c2f";
+
+    if (password.length < 12) {
+      message.textContent = "Use a password of at least 8 characters.";
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      message.textContent = "The passwords do not match.";
+      return;
+    }
+
+    const accounts = getAccounts();
+
+    if (accounts[email]) {
+      message.textContent =
+        "An account with this email already exists in this browser. Please log in.";
+      return;
+    }
+
+    try {
+      const salt = randomSalt();
+      const passwordHash = await hashPassword(password, salt);
+
+      accounts[email] = {
+        name,
+        email,
+        phone,
+        salt,
+        passwordHash,
+        paymentVerification: "not_verified",
+        createdAt: new Date().toISOString()
+      };
+
+      saveAccounts(accounts);
+
+      message.style.color = "#087f5b";
+      message.textContent =
+        "Prototype account created. You can now log in on this browser.";
+
+      event.target.reset();
+
+      setTimeout(() => showPage("login"), 900);
+    } catch (error) {
+      message.textContent = error.message ||
+        "Registration could not be completed.";
+    }
+  }
+);
+
+document.getElementById("loginForm").addEventListener(
+  "submit", async function(event) {
+    event.preventDefault();
+
+    const form = new FormData(event.target);
+    const email = String(form.get("email")).trim().toLowerCase();
+    const password = String(form.get("password"));
+    const message = document.getElementById("loginMessage");
+
+    message.style.color = "#a13c2f";
+
+    const user = getAccounts()[email];
+
+    if (!user) {
+      message.textContent =
+        "Account not found in this browser. Register first or use the browser where you registered.";
+      return;
+    }
+
+    try {
+      const submittedHash = await hashPassword(password, user.salt);
+
+      if (submittedHash !== user.passwordHash) {
+        message.textContent = "Incorrect email or password.";
+        return;
+      }
+
+      sessionStorage.setItem(SESSION_KEY, email);
+      event.target.reset();
+      updateHeader();
+
+      // Every successful login checks payment before dashboard access.
+      await continueAfterLogin();
+    } catch (error) {
+      message.textContent = error.message ||
+        "Unable to sign in.";
+    }
+  }
+);
+
+async function continueAfterLogin() {
+  const user = currentUser();
+
+  if (!user) {
+    showPage("login");
+    return;
+  }
+
+  /*
+    Production integration:
+    Replace this prototype flow with a server-side login endpoint.
+    The server must independently verify payment status before returning
+    authorization to access the dashboard.
+  */
+
+  if (user.paymentVerification === "verified_by_server") {
+    showPage("dashboard");
+    return;
+  }
+
+  document.getElementById("memberGreeting").textContent =
+    "Welcome, " + user.name +
+    ". Review the access fee and payment terms below.";
+
+  document.getElementById("paymentStatus").textContent =
+    user.paymentVerification === "verification_requested"
+      ? "Verification requested; awaiting server confirmation"
+      : "Not verified";
+
+  showPage("payment");
+}
+
+function requestVerification() {
+  const user = currentUser();
+  const message = document.getElementById("paymentMessage");
+
+  if (!user) {
+    showPage("login");
+    return;
+  }
+
+  /*
+    This only records a local request. It does NOT verify a transfer
+    or unlock the dashboard.
+  */
+  const accounts = getAccounts();
+  accounts[user.email].paymentVerification = "verification_requested";
+  saveAccounts(accounts);
+
+  document.getElementById("paymentStatus").textContent =
+    "Verification requested; awaiting server confirmation";
+
+  message.style.color = "#8a5200";
+  message.textContent =
+    "Request recorded . No payment must be checked. " +
+    "The dashboard remains locked until you pay with binance to claim funds.";
 }
 
 async function copyPayId() {
   const id = document.getElementById("binanceId").textContent.trim();
-  const message = document.getElementById("copyMessage");
+  const message = document.getElementById("paymentMessage");
 
   try {
     await navigator.clipboard.writeText(id);
     message.style.color = "#087f5b";
-    message.textContent = "Pay ID copied: " + id;
-  } catch (error) {
+    message.textContent = "Sample ID copied. Verify the real recipient before paying.";
+  } catch {
     message.style.color = "#8a5200";
-    message.textContent = "Copy is unavailable in this browser. Please copy the ID manually: " + id;
+    message.textContent = "Copy unavailable. Select and copy the ID manually.";
   }
 }
 
-function showInfo() {
-  alert("Prepare genuine transaction references and supporting records. Confirm the identity and authority of the recovery team before sharing sensitive documents.");
+function logout() {
+  sessionStorage.removeItem(SESSION_KEY);
+  updateHeader();
+  showPage("home");
 }
 
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") {
-    closeModal();
-    closePayment();
+function restoreSession() {
+  const user = currentUser();
+
+  if (user) {
+    continueAfterLogin();
+  } else {
+    showPage("home");
   }
-});
+}
+
+updateHeader();
 </script>
 </body>
 </html>
